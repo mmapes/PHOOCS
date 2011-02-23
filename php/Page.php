@@ -9,9 +9,9 @@ class Page extends Html
 {
 	protected $beforePage;
 	protected $main;
-	protected $footer;
+	protected $foot;
 	protected $footScripts;
-	protected $header;
+	protected $head;
 	protected $leftCol;
 	protected $pageClasses = array('');
 	protected $rightCol;
@@ -110,11 +110,11 @@ class Page extends Html
 	{
 		if (is_a($h, 'Html'))
 		{
-			$this->header = $h->getHtml();
+			$this->head = $h->getHtml();
 		}
 		if (is_string($h))
 		{
-			$this->header = $h;
+			$this->head = $h;
 		}
 	}
 	
@@ -154,15 +154,15 @@ class Page extends Html
 		}
 	}
 
-	public function setFooter($h)
+	public function setFoot($h)
 	{
 		if (is_a($h, 'Html'))
 		{
-			$this->footer = $h->getHtml();
+			$this->foot = $h->getHtml();
 		}
 		if (is_string($h))
 		{
-			$this->footer = $h;
+			$this->foot = $h;
 		}
 	}
 	
@@ -181,13 +181,13 @@ class Page extends Html
 
 	protected function getHead()
 	{
-		if (isset($this->header))
+		if (isset($this->head))
 		{
 			return sprintf(
 				'<div class="head">
 					%s
 				</div>',
-				$this->header
+				$this->head
 			);
 		}
 	}
@@ -232,7 +232,7 @@ class Page extends Html
 			$this->getLeftCol(),
 			$this->getRightCol(),
 			$this->main,
-			$this->footer,
+			$this->foot,
 			$this->footScripts
 		);
 	}
