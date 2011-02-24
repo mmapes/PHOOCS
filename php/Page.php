@@ -225,8 +225,8 @@ class Page extends Html
 		return sprintf(
 			$this->pageTemplate,
 			$this->title,
-			$this->beforePage,
 			$this->headContent,
+			$this->beforePage,
 			$this->getPageClasses(),
 			$this->getHead(),
 			$this->getLeftCol(),
