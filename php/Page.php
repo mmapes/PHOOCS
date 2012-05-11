@@ -24,6 +24,7 @@ class Page extends Html
 		<!DOCTYPE html>
 		<html lang="en">
 		<head>
+		<meta charset="utf-8">
 			<title>%s</title>
 			%s
 		</head>
@@ -115,6 +116,18 @@ class Page extends Html
 		if (is_string($h))
 		{
 			$this->head = $h;
+		}
+	}
+	
+	public function addToHead($h)
+	{
+		if (is_a($h, 'Html'))
+		{
+			$this->head .= $h->getHtml();
+		}
+		if (is_string($h))
+		{
+			$this->head .= $h;
 		}
 	}
 	
